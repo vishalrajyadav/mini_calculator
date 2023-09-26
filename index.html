@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            color: white;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(resource-database-VGiPP41zf9U-unsplash.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            transition: 1s;
+            border: 2px solid black;
+            background: linear-gradient(to right, black, rgb(29, 28, 28), rgb(119, 106, 106), rgb(212, 211, 211));
+        }
+
+        .container:hover {
+            box-shadow: 25px 20px 10px rgb(19, 18, 18);
+        }
+
+        #head {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        h1::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2.3px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, red, rgb(32, 6, 150), rgb(223, 114, 114), rgb(90, 177, 19));
+            animation: underlineAnimation 4s infinite;
+        }
+
+        @keyframes underlineAnimation {
+            0%, 100% {
+                transform: scaleX(1);
+            }
+            50% {
+                transform: scaleX(-1);
+            }
+        }
+
+        .box {
+            margin-left: 20px;
+            width: 100%;
+        }
+
+        input {
+            width: 90%;
+            height: 20px;
+            border-radius: 8px;
+            margin: 5px;
+            color: black;
+        }
+
+        button {
+            height: 25px;
+            border-radius: 8px;
+            border: 1.9px solid black;
+            box-shadow: 5px 6px 4px black;
+            width: 45%;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            input {
+                width: 80%;
+            }
+        }
+        #add{
+            background-color: red;
+        }
+        #sub{
+            background-color: blue;
+        }
+        #div{
+            background-color: rgb(146, 146, 49);
+        }
+        #mul{
+            background-color: rgb(76, 202, 202);
+        }
+        #fact{
+            background-color: rgb(1, 56, 1);
+        }
+        #percentage{
+            background-color: orangered;
+        }
+        #power{
+            background-color:palevioletred;
+        }
+    </style>
+    <title>CALCULATOR</title>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <div id="head"><h1>Calculator</h1></div>
+        <input type="text" id="n1" placeholder="Enter number 1">
+        <input type="text" id="n2" placeholder="Enter number 2">
+        <input type="text" id="ans" placeholder="Answer">
+
+        <div class="button">
+            <button id="add" onclick="add()">Add</button>
+            <button id="sub" onclick="sub()">Subtract</button>
+            <button id="mul" onclick="mul()">Multiply</button>
+            <button id="div" onclick="div()">Divide</button>
+            <button id="fact" onclick="fact()">Factorial</button>
+            <button id="percentage" onclick="percentage()">Percentage</button>
+            <button id="power" onclick="power()">Power</button>
+        </div>
+    </div>
+</div>
+<script>
+    function add() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = a + b;
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function sub() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = a - b;
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function mul() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = a * b;
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function div() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = a / b;
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function fact() {
+        var a = parseInt(document.getElementById("n1").value);
+        var fact = 1;
+        for (i = 1; i <= a; i++) {
+            fact = fact * i;
+        }
+        document.getElementById("ans").value = fact;
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function percentage() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = ((a / b) * 100 + "%");
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    function power() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        document.getElementById("ans").value = Math.pow(a, b);
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+</script>
+</body>
+</html>
